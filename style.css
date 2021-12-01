@@ -1,0 +1,15 @@
+:root {
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 75px auto;
+  border: 1px solid red;
+  height: 500px;
+  width: 350px;
+  box-shadow: 1px 5px 10px gray;
+  border-radius: 10px;
+}
