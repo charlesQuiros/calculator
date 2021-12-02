@@ -23,3 +23,28 @@
     EXTRA CREDIT: Make it look nice! This can be a good portfolio project… but not if it’s UGLY. At least make the operations a different color from the keypad buttons.
     EXTRA CREDIT: Add a “backspace” button, so the user can undo if they click the wrong number.
     EXTRA CREDIT: Add keyboard support!
+
+
+TODO Add history functionality
+TODO make the css looks splashier
+
+
+    // const ac = document.getElementById("ac");
+// const posMin = document.getElementById("pos-min");
+// const percentage = document.getElementById("percentage");
+// const division = document.getElementById("division");
+// const seven = document.getElementById("seven");
+// const eight = document.getElementById("eight");
+// const nine = document.getElementById("nine");
+// const multiplication = document.getElementById("multiplication");
+// const four = document.getElementById("four");
+// const five = document.getElementById("five");
+// const six = document.getElementById("six");
+// const minus = document.getElementById("minus");
+// const one = document.getElementById("one");
+// const two = document.getElementById("two");
+// const three = document.getElementById("three");
+// const addition = document.getElementById("addition");
+// const zero = document.getElementById("zero");
+// const period = document.getElementById("period");
+// const equals = document.getElementById("equals");
