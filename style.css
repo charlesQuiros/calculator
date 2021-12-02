@@ -20,7 +20,7 @@ body {
   margin: 75px auto;
   height: 500px;
   width: 350px;
-  box-shadow: 1px 5px 10px var(--black);
+  box-shadow: 1px 1px 5px var(--black);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--dark-blue);
@@ -28,6 +28,7 @@ body {
 
 #display {
   height: 100px;
+  font-size: 42px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -38,14 +39,33 @@ body {
 
 #input-grid {
   height: 398px;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   border-radius: 10px;
 }
 
+.operators {
+  background-color: var(--orange);
+}
+
+.extra {
+  background-color: hsla(0, 0%, 90%, 1);
+}
+
+#zero {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
 button {
-  background-color: var(--platinum);
+  background-color: var(--white);
   border: none;
+  color: var(--dark-blue);
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: var(--platinum);
+  border: 1px solid var(--orange);
 }
