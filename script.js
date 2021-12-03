@@ -3,11 +3,11 @@ const buttons = document.querySelectorAll("button");
 
 display.textContent = 0;
 let store = {
-  temp: "",
-  storeNum: false,
   prevNum: "",
   currentNum: "",
-  operator: null,
+  result: "",
+  operator: "",
+  storeNum: false,
 };
 
 buttons.forEach((button) => {
@@ -15,33 +15,39 @@ buttons.forEach((button) => {
 });
 
 const storeNums = (e) => {
-  const numClicked = e.target.textContent;
-
-  if (store.storeNum) {
-    console.log("storeNum");
+  if (!store.storeNum) {
+    store.prevNum += e.target.textContent;
+    localStorage.setItem("prevNum", JSON.stringify(store.prevNum));
+    console.log(store.prevNum);
+  } else {
+    store.currentNum += e.target.textContent;
+    localStorage.setItem("currentNum", JSON.stringify(store.currentNum));
+    console.log(currentNum);
   }
 };
 
 //Only when an operator is clicked, the number entered by the user is finally stored in the local storage
 const storeOperators = (e) => {
   store.storeNum = true;
+  store.operator = e.target.textContent;
+  localStorage.setItem("operator", JSON.stringify(store.operator));
 };
 
 const storeExtra = (e) => {};
 
-const calculate = (num1, num2, storedOperator) => {
-  switch (storedOperator) {
+const calculate = () => {
+  switch (store.operator) {
     case "+": {
-      return num1 + num2;
+      return store.currentNum + store.prevNum;
     }
     case "-": {
-      return num1 - num2;
+      return store.currentNum - store.prevNum;
     }
     case "*": {
-      return num1 * num2;
+      return store.currentNum * store.prevNum;
     }
     case "/": {
-      return num1 / num2;
+      return store.currentNum / store.prevNum;
     }
     default:
       console.log("error");
@@ -58,6 +64,6 @@ const operate = (e) => {
   } else if (e.target.id === "period") {
     console.log("period");
   } else if (e.target.id === "equals") {
-    console.log("equals");
+    display.textContent = calculate();
   }
 };
