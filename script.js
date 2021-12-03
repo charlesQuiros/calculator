@@ -3,7 +3,9 @@ const buttons = document.querySelectorAll("button");
 
 display.textContent = 0;
 
-let userValues = [];
+let preStorageArray = [];
+let prevNumArray = [];
+let currentNumArray = [];
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => operate(e));
@@ -12,10 +14,16 @@ buttons.forEach((button) => {
 const storeNums = (e) => {
   if (e.target.className === "numbers") {
     let userNum = e.target.textContent;
-    display.textContent = userNum;
-    userValues.push(userNum);
 
-    localStorage.userValues = JSON.stringify(userValues);
+    preStorageArray.push(userNum);
+    const joinedNums = preStorageArray.join("");
+    display.textContent = joinedNums;
+
+    if (localStorage.operator) {
+      prevNumArray.push(joinedNums);
+      localStorage.prevNumArray = JSON.stringify(prevNumArray);
+      localStorage.removeItem("operator");
+    }
   }
 };
 
@@ -23,6 +31,8 @@ const storeOperators = (e) => {
   if (e.target.className === "operators") {
     const userOperator = e.target.textContent;
     localStorage.setItem("operator", userOperator);
+    //TODO remove this
+    display.textContent = e.target.textContent;
   }
 };
 
